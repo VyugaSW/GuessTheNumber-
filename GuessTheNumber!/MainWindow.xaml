@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GuessTheNumber_"
+        xmlns:local="clr-namespace:GuessTheNumber_.Properties"
         mc:Ignorable="d"
         x:Name="MainWindowName"
         Title="Guess the number" Height="450" Width="800" Style="{StaticResource StyleWindowGreen}">
@@ -84,14 +84,14 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="StartGameButton" 
+            <Button x:Name="StartGameButton" Content="{x:Static local:Lang.Start}"
                     Grid.Column="0" Grid.Row="0" Style="{StaticResource StyleButtonGreen}" 
                     ToolTip="Start a new game"
                     Click="StartGameButton_Click"/>
 
-            <Button x:Name="ExitButton"
+            <Button x:Name="ExitButton" Content="{x:Static local:Lang.Exit}"
                     Grid.Column="1" Grid.Row="0" Style="{StaticResource StyleButtonGreen}"
-                    ToolTip="Close programm" 
+                    ToolTip="Close program" 
                     Click="ExitButton_Click"/>
         </Grid>
 

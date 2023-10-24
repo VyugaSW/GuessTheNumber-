@@ -117,10 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About program" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Close program" xml:space="preserve">
+    <value>Закрыть программу</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="Difficult" xml:space="preserve">
+    <value>Сложность</value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>Выход</value>
   </data>
+  <data name="Game" xml:space="preserve">
+    <value>Игра</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Зелёный</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="New game" xml:space="preserve">
+    <value>Новая игра</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Пауза</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Красный</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Вернуться</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="Start" xml:space="preserve">
     <value>Начать</value>
+  </data>
+  <data name="Start a new game" xml:space="preserve">
+    <value>Начать новую игру</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="Violet" xml:space="preserve">
+    <value>Фиолетовый</value>
   </data>
 </root>

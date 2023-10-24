@@ -25,8 +25,7 @@ namespace GuessTheNumber_
         public MainWindow()
         {
             InitializeComponent();
-            StartGameButton.Content = Lang.Start;
-            ExitButton.Content = Lang.Exit;
+
         }
 
         private void ChangeProgramColor(string color)
