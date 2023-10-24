@@ -5,29 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuessTheNumber_"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="AntiqueWhite" Offset="0"/>
-            <GradientStop Color="LightSteelBlue" Offset="0.2"/>
-            <GradientStop Color="WhiteSmoke" Offset="0.7"/>
-            <GradientStop Color="AliceBlue" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
+        x:Name="MainWindowName"
+        Title="Guess the number" Height="450" Width="800" Style="{StaticResource StyleWindowGreen}">
 
     <Window.ContextMenu>
         <ContextMenu>
-            <MenuItem Header="FUTURE"/>
-            <MenuItem Header="FUTURE"/>
-            <MenuItem Header="FUTURE"/>
-            <MenuItem Header="FUTURE"/>
-            <MenuItem Header="FUTURE"/>
+            <MenuItem Header="Update"/>
+            <MenuItem Header="Pause" InputGestureText="P"/>
+            <MenuItem Header="Close" InputGestureText="Alt + F4"/>
+            <Separator Background="LightSkyBlue"/>
+            <MenuItem Header="Return" InputGestureText="Ctrl + z" IsEnabled="False"/>
         </ContextMenu>
     </Window.ContextMenu>
 
-    <Grid
-        >
+    <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -41,7 +33,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Menu Grid.Row="0" Height="20" VerticalAlignment="Top" Style="{StaticResource StyleMenu}">
+            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{StaticResource StyleMenuGreen}">
 
                 <MenuItem Header="_Game">
                     <MenuItem Header="_New game" InputGestureText="Ctrl+N">
@@ -49,20 +41,32 @@
                             <Image Source="/Images/GameStart.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    
                     <Separator Background="LightSkyBlue"/>
+
                     <MenuItem Header="C_lose" InputGestureText="Alt+F4"/>
                 </MenuItem>
 
                 <MenuItem Header="_Settings">
                     <MenuItem Header="_Difficult"/>
-                    <MenuItem Header="_Color">
-                        <MenuItem Header="_Green" IsCheckable="True" IsChecked="True"/>
-                        <MenuItem Header="_Violet" IsCheckable="True"/>
-                        <MenuItem Header="_Red" IsCheckable="True"/>
+                    
+                    <MenuItem x:Name="ColorItem" Header="_Color">
+                        <MenuItem Header="_Green" IsCheckable="True" IsChecked="True" Click="ColorSubItem_Click" />
+                        <MenuItem Header="_Violet" IsCheckable="True" Click="ColorSubItem_Click"/>
+                        <MenuItem Header="_Red" IsCheckable="True"  Click="ColorSubItem_Click"/>
+                    </MenuItem>
+                    
+                    <Separator Background="LightSkyBlue"/>
+
+                    <MenuItem Header="_Language">
+                        <MenuItem Header="_English" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="_Русский" IsCheckable="True" />
+                        <MenuItem Header="_Deutsch" IsCheckable="True" />
                     </MenuItem>
                 </MenuItem>
-
-                <MenuItem Header="_About programm" Click="MenuItem_Click"/>
+                
+                <MenuItem Header="_About program" Click="AboutProgramItem_Click"/>
+                
             </Menu>
             
         </Grid>
@@ -80,18 +84,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="StartGameButton" Content="Start Game"
-                    Grid.Column="0" Grid.Row="0" Style="{StaticResource StyleButton}">
-                <Button.ToolTip>
-                    <TextBlock Text="Start a new game"/>
-                </Button.ToolTip>
-            </Button>
-            
-            <Button x:Name="ExitButton" Content="Exit"
-                    Grid.Column="1" Grid.Row="0" Style="{StaticResource StyleButton}"
-                    ToolTip="Close programm"/>
+            <Button x:Name="StartGameButton" 
+                    Grid.Column="0" Grid.Row="0" Style="{StaticResource StyleButtonGreen}" 
+                    ToolTip="Start a new game"
+                    Click="StartGameButton_Click"/>
 
-
+            <Button x:Name="ExitButton"
+                    Grid.Column="1" Grid.Row="0" Style="{StaticResource StyleButtonGreen}"
+                    ToolTip="Close programm" 
+                    Click="ExitButton_Click"/>
         </Grid>
 
 

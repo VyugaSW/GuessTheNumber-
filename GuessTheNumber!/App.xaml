@@ -5,7 +5,49 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <Style x:Key="StyleMenu" TargetType="Menu">
+        <Style x:Key="StyleWindowGreen" TargetType="Window">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="AntiqueWhite" Offset="0"/>
+                        <GradientStop Color="LightSteelBlue" Offset="0.2"/>
+                        <GradientStop Color="WhiteSmoke" Offset="0.7"/>
+                        <GradientStop Color="AliceBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StyleWindowRed" TargetType="Window">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="PaleVioletRed" Offset="0"/>
+                        <GradientStop Color="IndianRed" Offset="0.2"/>
+                        <GradientStop Color="OrangeRed" Offset="0.7"/>
+                        <GradientStop Color="DarkRed" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StyleWindowViolet" TargetType="Window">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Violet" Offset="0"/>
+                        <GradientStop Color="BlueViolet" Offset="0.2"/>
+                        <GradientStop Color="DarkViolet" Offset="0.7"/>
+                        <GradientStop Color="MediumVioletRed" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        
+        
+        
+        <Style x:Key="StyleMenuGreen" TargetType="Menu">
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -17,6 +59,35 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="StyleMenuViolet" TargetType="Menu">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="DeepPink" Offset="0"/>
+                        <GradientStop Color="Violet" Offset="0.2"/>
+                        <GradientStop Color="MediumPurple" Offset="0.7"/>
+                        <GradientStop Color="Purple" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StyleMenuRed" TargetType="Menu">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="OrangeRed" Offset="0"/>
+                        <GradientStop Color="IndianRed" Offset="0.2"/>
+                        <GradientStop Color="PaleVioletRed" Offset="0.7"/>
+                        <GradientStop Color="MediumVioletRed" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        
         
         <Style x:Key="StyleText">
             <Style.Setters>
@@ -27,7 +98,8 @@
             </Style.Setters>
         </Style>
         
-        <Style x:Key="StyleButton" TargetType="Button" BasedOn="{StaticResource StyleText}">
+        
+        <Style x:Key="StyleButtonGreen" TargetType="Button" BasedOn="{StaticResource StyleText}">
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Background">
                 <Setter.Value>
@@ -78,6 +150,112 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <Style x:Key="StyleButtonViolet" TargetType="Button" BasedOn="{StaticResource StyleText}">
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="LightPink" Offset="0"/>
+                        <GradientStop Color="MediumPurple" Offset="0.5"/>
+                        <GradientStop Color="HotPink" Offset="1"/>
+                        <GradientStop Color="DeepPink" Offset="1.5"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="2"
+                                BorderBrush="AliceBlue"
+                                CornerRadius="30">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="Violet" Offset="0"/>
+                                            <GradientStop Color="Purple" Offset="0.5"/>
+                                            <GradientStop Color="DarkViolet" Offset="1"/>
+                                            <GradientStop Color="Indigo" Offset="1.5"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="MediumPurple" Offset="0"/>
+                                            <GradientStop Color="Purple" Offset="0.5"/>
+                                            <GradientStop Color="DarkViolet" Offset="1"/>
+                                            <GradientStop Color="DarkMagenta" Offset="1.5"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="StyleButtonRed" TargetType="Button" BasedOn="{StaticResource StyleText}">
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="LightYellow" Offset="0"/>
+                        <GradientStop Color="LightSkyBlue" Offset="0.5"/>
+                        <GradientStop Color="Aquamarine" Offset="1"/>
+                        <GradientStop Color="AliceBlue" Offset="1.5"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="2"
+                                BorderBrush="AliceBlue"
+                                CornerRadius="30">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="SkyBlue" Offset="0"/>
+                                            <GradientStop Color="LightYellow" Offset="0.5"/>
+                                            <GradientStop Color="LightSeaGreen" Offset="1"/>
+                                            <GradientStop Color="GhostWhite" Offset="1.5"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="LightPink" Offset="0"/>
+                                            <GradientStop Color="LightYellow" Offset="0.5"/>
+                                            <GradientStop Color="SkyBlue" Offset="1"/>
+                                            <GradientStop Color="AntiqueWhite" Offset="1.5"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Application.Resources>
 </Application>
