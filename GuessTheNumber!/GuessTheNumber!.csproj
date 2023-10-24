@@ -80,10 +80,10 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Lang.ru-RU.Designer.cs">
+    <Compile Include="Properties\Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.ru-RU.resx</DependentUpon>
+      <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -98,9 +98,9 @@
     <EmbeddedResource Include="AboutProgramm.resx">
       <DependentUpon>AboutProgramm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Lang.ru-RU.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.ru-RU.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Properties\Lang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
