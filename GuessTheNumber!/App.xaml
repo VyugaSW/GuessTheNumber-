@@ -5,6 +5,22 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <Style x:Key="StyleText">
+            <Style.Setters>
+                <Setter Property="Control.FontSize" Value="25"/>
+                <Setter Property="Control.FontStyle" Value="Italic"/>
+                <Setter Property="Control.Margin" Value="10"/>
+                <Setter Property="Control.Foreground" Value="DarkViolet"/>
+            </Style.Setters>
+        </Style>
+            
+        <Style x:Key="StyleTextBox" TargetType="TextBox" BasedOn="{StaticResource StyleText}">
+            <Setter Property="ItemsControl.FontSize" Value="30"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="300,40"/>
+        </Style>
+        
+        
         <Style x:Key="StyleWindowGreen" TargetType="Window">
             <Setter Property="Background">
                 <Setter.Value>
@@ -86,19 +102,7 @@
             </Setter>
         </Style>
 
-
-        
-        
-        <Style x:Key="StyleText">
-            <Style.Setters>
-                <Setter Property="Control.FontSize" Value="25"/>
-                <Setter Property="Control.FontStyle" Value="Italic"/>
-                <Setter Property="Control.Margin" Value="10"/>
-                <Setter Property="Control.Foreground" Value="DarkViolet"/>
-            </Style.Setters>
-        </Style>
-        
-        
+              
         <Style x:Key="StyleButtonGreen" TargetType="Button" BasedOn="{StaticResource StyleText}">
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Background">
@@ -209,10 +213,10 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="LightYellow" Offset="0"/>
-                        <GradientStop Color="LightSkyBlue" Offset="0.5"/>
-                        <GradientStop Color="Aquamarine" Offset="1"/>
-                        <GradientStop Color="AliceBlue" Offset="1.5"/>
+                        <GradientStop Color="Orange" Offset="0"/>
+                        <GradientStop Color="Coral" Offset="0.5"/>
+                        <GradientStop Color="LightGoldenrodYellow" Offset="1"/>
+                        <GradientStop Color="DarkRed" Offset="1.5"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -230,10 +234,10 @@
                                 <Setter Property="Background">
                                     <Setter.Value>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                            <GradientStop Color="SkyBlue" Offset="0"/>
-                                            <GradientStop Color="LightYellow" Offset="0.5"/>
-                                            <GradientStop Color="LightSeaGreen" Offset="1"/>
-                                            <GradientStop Color="GhostWhite" Offset="1.5"/>
+                                            <GradientStop Color="Yellow" Offset="0"/>
+                                            <GradientStop Color="DarkRed" Offset="0.5"/>
+                                            <GradientStop Color="Red" Offset="1"/>
+                                            <GradientStop Color="OrangeRed" Offset="1.5"/>
                                         </LinearGradientBrush>
                                     </Setter.Value>
                                 </Setter>
@@ -242,10 +246,10 @@
                                 <Setter Property="Background">
                                     <Setter.Value>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                            <GradientStop Color="LightPink" Offset="0"/>
-                                            <GradientStop Color="LightYellow" Offset="0.5"/>
-                                            <GradientStop Color="SkyBlue" Offset="1"/>
-                                            <GradientStop Color="AntiqueWhite" Offset="1.5"/>
+                                            <GradientStop Color="Coral" Offset="0"/>
+                                            <GradientStop Color="DarkOrange" Offset="0.5"/>
+                                            <GradientStop Color="Orange" Offset="1"/>
+                                            <GradientStop Color="Red" Offset="1.5"/>
                                         </LinearGradientBrush>
                                     </Setter.Value>
                                 </Setter>

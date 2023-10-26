@@ -20,40 +20,19 @@ namespace GuessTheNumber_
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
+  
     public partial class MainWindow : Window
     {
+        private string _difficult = "Medium";
+        private string _color = "Green";
+        private WindowViewChanger _windowChanger;
+
         public MainWindow()
         {
             InitializeComponent();
-
+            _windowChanger = new WindowViewChanger(Menu, MainWindowName, StartGameButton, ExitButton);
         }
-
-        private void ChangeProgramColor(string color)
-        {
-            ResourceDictionary styles = Application.Current.Resources;
-            switch (color)
-            {
-                case "Green":
-                    MainWindowName.Style = (Style)styles["StyleWindowGreen"];
-                    Menu.Style = (Style)styles["StyleMenuGreen"];
-                    StartGameButton.Style = (Style)styles["StyleButtonGreen"];
-                    ExitButton.Style = (Style)styles["StyleButtonGreen"];
-                    break;
-                case "Violet":
-                    MainWindowName.Style = (Style)styles["StyleWindowViolet"];
-                    Menu.Style = (Style)styles["StyleMenuViolet"];
-                    StartGameButton.Style = (Style)styles["StyleButtonViolet"];
-                    ExitButton.Style = (Style)styles["StyleButtonViolet"];
-                    break;
-                case "Red":
-                    MainWindowName.Style = (Style)styles["StyleWindowRed"];
-                    Menu.Style = (Style)styles["StyleMenuRed"];
-                    StartGameButton.Style = (Style)styles["StyleButtonRed"];
-                    ExitButton.Style = (Style)styles["StyleButtonRed"];
-                    break;
-            }
-        }
-
 
         private void AboutProgramItem_Click(object sender, RoutedEventArgs e)
         {
@@ -64,25 +43,28 @@ namespace GuessTheNumber_
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
-
+            GameProcessWindow GameWindow = new GameProcessWindow(_difficult, _color);
+            Hide();     
+            GameWindow.Show();
         }
+
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
 
         private void ColorSubItem_Click(object sender, RoutedEventArgs e)
         {
-            foreach (MenuItem item in ColorItem.Items)
-            {
-                if (item.IsChecked == true)
-                    item.IsChecked = false;
-            }
-
-            (sender as MenuItem).IsChecked = true;
-            ChangeProgramColor((sender as MenuItem).Header.ToString().Replace("_", ""));
+            _color = (sender as MenuItem).Header.ToString().Replace("_", "");
+            _windowChanger.ChangeCheked(sender, ColorItem);
+            _windowChanger.ChangeProgramColor(_color);
         }
 
+        private void DifficultSubItem_Click(object sender, RoutedEventArgs e)
+        {
+            _difficult = (sender as MenuItem).Header.ToString().Replace("_", "");
+            _windowChanger.ChangeCheked(sender, DifficultItem);            
+        }
     }
 }

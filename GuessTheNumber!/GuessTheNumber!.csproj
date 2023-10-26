@@ -57,6 +57,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowViewChanger.cs" />
+    <Page Include="GameProcessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +75,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DifficultSettings.cs" />
+    <Compile Include="GameProcessWindow.xaml.cs">
+      <DependentUpon>GameProcessWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -98,6 +107,7 @@
     <EmbeddedResource Include="AboutProgramm.resx">
       <DependentUpon>AboutProgramm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Lang-ru.RU.resx" />
     <EmbeddedResource Include="Properties\Lang.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>

@@ -1,12 +1,11 @@
-﻿<Window x:Class="GuessTheNumber_.MainWindow"
+﻿<Window x:Class="GuessTheNumber_.GameProcessWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GuessTheNumber_.Properties"
+        xmlns:local="clr-namespace:GuessTheNumber_"
         mc:Ignorable="d"
-        x:Name="MainWindowName"
-        Title="Guess the number" Height="450" Width="800" Style="{StaticResource StyleWindowGreen}">
+        Title="GameProcessWindow" Height="450" Width="800" x:Name="GameWindow">
 
     <Window.ContextMenu>
         <ContextMenu>
@@ -19,21 +18,26 @@
     </Window.ContextMenu>
 
     <Grid>
-        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="0.8*"/>
         </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="2" Style="{StaticResource StyleTextBox}"/>
+        <ProgressBar Grid.Row="3" 
+                     Maximum="{Binding Path=TotalTime}" Value="{Binding Path=Time}"/>
 
         <!-- This grid is for menu-->
         <Grid Grid.Row="0">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{StaticResource StyleMenuGreen}">
+            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top">
 
                 <MenuItem Header="_Game">
                     <MenuItem Header="_New game" InputGestureText="Ctrl+N">
@@ -41,7 +45,7 @@
                             <Image Source="/Images/GameStart.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    
+
                     <Separator Background="LightSkyBlue"/>
 
                     <MenuItem Header="C_lose" InputGestureText="Alt+F4"/>
@@ -49,18 +53,18 @@
 
                 <MenuItem Header="_Settings">
 
-                    <MenuItem x:Name="DifficultItem" Header="_Difficult" >
-                        <MenuItem Header="_Easy" IsCheckable="True" Click="DifficultSubItem_Click" />
-                        <MenuItem Header="_Medium" IsCheckable="True" IsChecked="True" Click="DifficultSubItem_Click"/>
-                        <MenuItem Header="_Hard" IsCheckable="True" Click="DifficultSubItem_Click"/>
+                    <MenuItem x:Name="DifficultItem" Header="_Difficult" IsEnabled="False">
+                        <MenuItem Header="_Easy" IsCheckable="True"  />
+                        <MenuItem Header="_Medium" IsCheckable="True" IsChecked="True" />
+                        <MenuItem Header="_Hard" IsCheckable="True" />
                     </MenuItem>
-                    
+
                     <MenuItem x:Name="ColorItem" Header="_Color">
                         <MenuItem Header="_Green" IsCheckable="True" IsChecked="True" Click="ColorSubItem_Click" />
                         <MenuItem Header="_Violet" IsCheckable="True" Click="ColorSubItem_Click"/>
-                        <MenuItem Header="_Red" IsCheckable="True"  Click="ColorSubItem_Click"/>
+                        <MenuItem Header="_Red" IsCheckable="True" Click="ColorSubItem_Click" />
                     </MenuItem>
-                    
+
                     <Separator Background="LightSkyBlue"/>
 
                     <MenuItem Header="_Language">
@@ -69,39 +73,31 @@
                         <MenuItem Header="_Deutsch" IsCheckable="True" />
                     </MenuItem>
                 </MenuItem>
-                
-                <MenuItem Header="_About program" Click="AboutProgramItem_Click"/>
-                
+
+                <MenuItem Header="_About program" Click="AboutProgramItem_Click" />
             </Menu>
-            
+
         </Grid>
         
-        <!-- This grid is for buttons ( StartGameButton and ExitButton )-->
+        <!-- Apple and Stop buttons-->
         <Grid Grid.Row="1">
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
 
-            <Button x:Name="StartGameButton" Content="Start"
-                    Grid.Column="0" Grid.Row="0" Style="{StaticResource StyleButtonGreen}" 
-                    ToolTip="Start a new game"
-                    Click="StartGameButton_Click"/>
+            <Button x:Name="ApplyButton" Content="Apply"
+                    Grid.Column="1" Grid.Row="0"
+                    ToolTip="Check entered number" />
 
-            <Button x:Name="ExitButton" Content="Exit"
-                    Grid.Column="1" Grid.Row="0" Style="{StaticResource StyleButtonGreen}"
-                    ToolTip="Close program" 
-                    Click="ExitButton_Click"/>
+            <Button x:Name="StopButton" Content="Stop"
+                    Grid.Column="3" Grid.Row="0"
+                    ToolTip="Stop the game" Click="StopButton_Click"/>
         </Grid>
 
-
     </Grid>
-    
-    
 </Window>
