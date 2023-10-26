@@ -25,7 +25,8 @@
             <RowDefinition Height="0.8*"/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="2" Style="{StaticResource StyleTextBox}"/>
+        <TextBox x:Name="TextBoxNumber" Grid.Row="2" Style="{StaticResource StyleTextBox}"/>
+        
         <ProgressBar Grid.Row="3" 
                      Maximum="{Binding Path=TotalTime}" Value="{Binding Path=Time}"/>
 
@@ -92,7 +93,7 @@
 
             <Button x:Name="ApplyButton" Content="Apply"
                     Grid.Column="1" Grid.Row="0"
-                    ToolTip="Check entered number" />
+                    ToolTip="Check entered number" Click="ApplyButton_Click" />
 
             <Button x:Name="StopButton" Content="Stop"
                     Grid.Column="3" Grid.Row="0"

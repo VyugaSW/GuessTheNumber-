@@ -92,5 +92,12 @@ namespace GuessTheNumber_
             aboutProgramm.Show();
         }
 
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(Convert.ToInt32(TextBoxNumber.Text) == _number)
+            {
+
+            }
+        }
     }
 }
