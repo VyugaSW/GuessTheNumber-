@@ -33,12 +33,12 @@ namespace GuessTheNumber_
         {
             WindowChanger = new WindowViewChanger();
             WindowChanger.ChangeProgramColor(color);
-            InitializeComponent();
 
             ApplySettings(difficult);
-            DataContext = this;
-
             GenerateNumber();
+
+            InitializeComponent();
+            DataContext = this;
 
             DifficultSettings.Timer.StartTimer();
         }
@@ -115,6 +115,15 @@ namespace GuessTheNumber_
             MainWindow mainWindow = new MainWindow();
             Close();
             mainWindow.Show();
+        }
+
+        private void ProgressBar_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (DifficultSettings.Timer.Timer == 0)
+            {
+                End("LOOSE");
+                TextBoxNumber.Text = Convert.ToString(_number);
+            }
         }
     }
 }

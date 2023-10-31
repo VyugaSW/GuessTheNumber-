@@ -30,8 +30,7 @@ namespace GuessTheNumber_
     {
         private Style _styleMenu;
         private Style _styleWindow;
-        private Style _styleButton1;
-        private Style _styleButton2;
+        private Style _styleButton;
 
         public Style StyleMenu 
         { 
@@ -39,7 +38,7 @@ namespace GuessTheNumber_
             set
             {
                 _styleMenu = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_styleMenu)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StyleMenu)));
             }             
         }
         public Style StyleWindow
@@ -48,25 +47,16 @@ namespace GuessTheNumber_
             set
             {
                 _styleWindow = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_styleMenu)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StyleMenu)));
             }
         }
-        public Style StyleButton1
+        public Style StyleButton
         {
-            get => _styleButton1;
+            get => _styleButton;
             set
             {
-                _styleButton1 = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_styleMenu)));
-            }
-        }
-        public Style StyleButton2
-        {
-            get => _styleButton2;
-            set
-            {
-                _styleButton2 = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_styleMenu)));
+                _styleButton = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StyleMenu)));
             }
         }
 
@@ -81,22 +71,19 @@ namespace GuessTheNumber_
                 case "Green":
                     StyleWindow = (Style)styles["StyleWindowGreen"];
                     StyleMenu = (Style)styles["StyleMenuGreen"];
-                    StyleButton1 = (Style)styles["StyleButtonGreen"];
-                    StyleButton2 = (Style)styles["StyleButtonGreen"];
+                    StyleButton = (Style)styles["StyleButtonGreen"];
                     break;
 
                 case "Violet":
                     StyleWindow = (Style)styles["StyleWindowViolet"];
                     StyleMenu = (Style)styles["StyleMenuViolet"];
-                    StyleButton1 = (Style)styles["StyleButtonViolet"];
-                    StyleButton2 = (Style)styles["StyleButtonViolet"];
+                    StyleButton = (Style)styles["StyleButtonViolet"];
                     break;
 
                 case "Red":
                     StyleWindow = (Style)styles["StyleWindowRed"];
                     StyleMenu = (Style)styles["StyleMenuRed"];
-                    StyleButton1 = (Style)styles["StyleButtonRed"];
-                    StyleButton2 = (Style)styles["StyleButtonRed"];
+                    StyleButton = (Style)styles["StyleButtonRed"];
                     break;
             }
         }

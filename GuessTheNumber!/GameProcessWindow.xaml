@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuessTheNumber_"
         mc:Ignorable="d"
-        Title="GameProcessWindow" Height="450" Width="800" x:Name="GameWindow" Style="{Binding Path=StyleWindow}">
+        Title="GameProcessWindow" Height="450" Width="800" x:Name="GameWindow" Style="{Binding WindowChanger.StyleWindow}">
 
     <Window.ContextMenu>
         <ContextMenu>
@@ -32,7 +32,7 @@
         <TextBox x:Name="TextBoxNumber" Grid.Row="2" Style="{StaticResource StyleTextBox}" Background="White" Opacity="0.4"/>
         
         <ProgressBar x:Name="ProgressBar" Grid.Row="3" 
-                     Maximum="{Binding DifficultSettings.TimerBer.TotalTime}" Value="{Binding DifficultSettings.TimerBer.Timer}"/>
+                     Maximum="{Binding DifficultSettings.Timer.TotalTime}" Value="{Binding DifficultSettings.Timer.Timer}" DataContextChanged="ProgressBar_DataContextChanged"/>
 
         <!-- This grid is for menu-->
         <Grid Grid.Row="0">
@@ -42,7 +42,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{Binding Path=StyleMenu}">
+            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{Binding WindowChanger.StyleMenu}">
 
                 <MenuItem Header="_Game">
                     <MenuItem Header="_New game" InputGestureText="Ctrl+N" Click="MenuItemNewGame_Click" >
@@ -96,11 +96,11 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="ApplyButton" Content="Apply"
-                    Grid.Column="1" Grid.Row="0" Style="{Binding Path=StyleButton1}"
+                    Grid.Column="1" Grid.Row="0" Style="{Binding WindowChanger.StyleButton}"
                     ToolTip="Check entered number" Click="ApplyButton_Click" />
 
             <Button x:Name="StopButton" Content="Stop"
-                    Grid.Column="3" Grid.Row="0" Style="{Binding Path=StyleButton1}"
+                    Grid.Column="3" Grid.Row="0" Style="{Binding WindowChanger.StyleButton}"
                     ToolTip="Stop the game" Click="StopButton_Click"/>
         </Grid>
 

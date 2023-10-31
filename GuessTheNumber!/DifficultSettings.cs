@@ -9,11 +9,13 @@ using System.Windows.Threading;
 
 namespace GuessTheNumber_
 {
-    public class TimerBer : INotifyPropertyChanged
+    public class TimerBar : INotifyPropertyChanged
     {
         private int _timer;
         private DispatcherTimer _dispatcherTimer;
         private int _totalTime;
+
+        public int TotalTime { get; set; }
 
         public int Timer
         {
@@ -21,15 +23,13 @@ namespace GuessTheNumber_
             set
             {
                 _timer = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuessTheNumber_.TimerBer)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuessTheNumber_.TimerBar)));
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int TotalTime { get; set; }
-
-        public TimerBer(int totalTime)
+        public TimerBar(int totalTime)
         {
             _totalTime = totalTime;
         }
@@ -56,13 +56,13 @@ namespace GuessTheNumber_
     {
         public int CountTips { get; set; }
         public int MaxNumber { get; }
-        public TimerBer Timer { get; set; }
+        public TimerBar Timer { get; set; }
 
         public DifficultSettings(int countTips, int maxNumber, int totalTime)
         {
             CountTips = countTips;
             MaxNumber = maxNumber;
-            Timer = new TimerBer(totalTime);
+            Timer = new TimerBar(totalTime);
         }
     }
 
