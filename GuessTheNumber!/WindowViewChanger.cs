@@ -19,12 +19,6 @@ using System.Windows.Threading;
 
 namespace GuessTheNumber_
 {
-    public class Styles
-    {
-        
-    }
-
-
 
     public class WindowViewChanger : INotifyPropertyChanged
     {
@@ -47,7 +41,7 @@ namespace GuessTheNumber_
             set
             {
                 _styleWindow = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StyleMenu)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StyleWindow)));
             }
         }
         public Style StyleButton
@@ -56,7 +50,7 @@ namespace GuessTheNumber_
             set
             {
                 _styleButton = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StyleMenu)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StyleButton)));
             }
         }
 

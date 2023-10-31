@@ -26,13 +26,14 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock x:Name="TextBlockEnd" FontSize="50" Style="{StaticResource StyleText}"
+        <TextBlock x:Name="TextBlockEnd" FontSize="50" Style="{StaticResource StyleTextBlack}"
                    Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         
         <TextBox x:Name="TextBoxNumber" Grid.Row="2" Style="{StaticResource StyleTextBox}" Background="White" Opacity="0.4"/>
         
+        
         <ProgressBar x:Name="ProgressBar" Grid.Row="3" 
-                     Maximum="{Binding DifficultSettings.Timer.TotalTime}" Value="{Binding DifficultSettings.Timer.Timer}" DataContextChanged="ProgressBar_DataContextChanged"/>
+                     Maximum="{Binding DifficultSettings.Timer.TotalTime}" Value="{Binding DifficultSettings.Timer.Timer}" ValueChanged="ProgressBar_ValueChanged"/>
 
         <!-- This grid is for menu-->
         <Grid Grid.Row="0">

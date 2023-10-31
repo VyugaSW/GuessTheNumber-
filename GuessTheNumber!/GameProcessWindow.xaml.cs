@@ -32,15 +32,16 @@ namespace GuessTheNumber_
         public GameProcessWindow(string difficult, string color)
         {
             WindowChanger = new WindowViewChanger();
+            _color = color;
             WindowChanger.ChangeProgramColor(color);
 
             ApplySettings(difficult);
             GenerateNumber();
 
             InitializeComponent();
-            DataContext = this;
-
             DifficultSettings.Timer.StartTimer();
+
+            DataContext = this;
         }
 
 
@@ -85,9 +86,9 @@ namespace GuessTheNumber_
 
         private void StopButton_Click(object sender, RoutedEventArgs e) 
         {
-
-
+            MainWindow mainWindow = new MainWindow(_color);
             Close();
+            mainWindow.Show();
         }
 
         private void AboutProgramItem_Click(object sender, RoutedEventArgs e)
@@ -98,7 +99,7 @@ namespace GuessTheNumber_
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToInt32(TextBoxNumber.Text) == _number)
+            if (Convert.ToInt32(TextBoxNumber.Text) == _number && DifficultSettings.Timer.Timer != 0)
                 End("WIN");            
         }
 
@@ -117,13 +118,14 @@ namespace GuessTheNumber_
             mainWindow.Show();
         }
 
-        private void ProgressBar_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (DifficultSettings.Timer.Timer == 0)
             {
                 End("LOOSE");
                 TextBoxNumber.Text = Convert.ToString(_number);
             }
+            Console.WriteLine(ProgressBar.Value);
         }
     }
 }

@@ -5,6 +5,15 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <Style x:Key="StyleTextBlack">
+            <Style.Setters>
+                <Setter Property="Control.FontSize" Value="25"/>
+                <Setter Property="Control.FontStyle" Value="Italic"/>
+                <Setter Property="Control.Margin" Value="10"/>
+                <Setter Property="Control.Foreground" Value="Black"/>
+            </Style.Setters>
+        </Style>
+
         <Style x:Key="StyleText">
             <Style.Setters>
                 <Setter Property="Control.FontSize" Value="25"/>

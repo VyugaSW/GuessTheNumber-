@@ -26,12 +26,28 @@ namespace GuessTheNumber_
     {
         private string _difficult = "Medium";
         private string _color = "Green";
-        private WindowViewChanger _windowChanger;
+        public WindowViewChanger WindowChanger { get; set; }
 
         public MainWindow()
         {
+            WindowChanger = new WindowViewChanger();
+            WindowChanger.ChangeProgramColor(_color);
+
             InitializeComponent();
-            _windowChanger = new WindowViewChanger();
+
+            DataContext = this;
+        }
+
+        public MainWindow(string color)
+        {
+            _color = color;
+            WindowChanger = new WindowViewChanger();
+
+            WindowChanger.ChangeProgramColor(_color);
+
+            InitializeComponent();
+
+            DataContext = this;
         }
 
         private void AboutProgramItem_Click(object sender, RoutedEventArgs e)
@@ -56,14 +72,14 @@ namespace GuessTheNumber_
         private void ColorSubItem_Click(object sender, RoutedEventArgs e)
         {
             _color = (sender as MenuItem).Header.ToString().Replace("_", "");
-            _windowChanger.ChangeCheked(sender, ColorItem);
-            _windowChanger.ChangeProgramColor(_color);
+            WindowChanger.ChangeCheked(sender, ColorItem);
+            WindowChanger.ChangeProgramColor(_color);
         }
 
         private void DifficultSubItem_Click(object sender, RoutedEventArgs e)
         {
             _difficult = (sender as MenuItem).Header.ToString().Replace("_", "");
-            _windowChanger.ChangeCheked(sender, DifficultItem);            
+            WindowChanger.ChangeCheked(sender, DifficultItem);            
         }
 
         private void MenuItemClose_Click(object sender, RoutedEventArgs e)

@@ -13,7 +13,6 @@ namespace GuessTheNumber_
     {
         private int _timer;
         private DispatcherTimer _dispatcherTimer;
-        private int _totalTime;
 
         public int TotalTime { get; set; }
 
@@ -23,7 +22,7 @@ namespace GuessTheNumber_
             set
             {
                 _timer = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuessTheNumber_.TimerBar)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Timer)));
             }
         }
 
@@ -31,7 +30,7 @@ namespace GuessTheNumber_
 
         public TimerBar(int totalTime)
         {
-            _totalTime = totalTime;
+            TotalTime = totalTime;
         }
 
         public void StartTimer()
@@ -39,7 +38,7 @@ namespace GuessTheNumber_
             _dispatcherTimer = new DispatcherTimer();
             _dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             _dispatcherTimer.Tick += DispatcherTimer_Tick;
-            Timer = _totalTime;
+            Timer = TotalTime;
             _dispatcherTimer.Start();
         }
 
@@ -70,13 +69,13 @@ namespace GuessTheNumber_
     {
         public static readonly int CountTipsEasy = 500;
         public static readonly int MaxNumberEasy = 100;
-        public static readonly int TimeEasy = 1000;
+        public static readonly int TimeEasy = 120;
 
         public static readonly int CountTipsMedium = 5;
         public static readonly int MaxNumberMedium = 500;
-        public static readonly int TimeMedium = 80;
+        public static readonly int TimeMedium = 60;
 
-        public static readonly int CountTipsHard = 3;
+        public static readonly int CountTipsHard = 2;
         public static readonly int MaxNumberHard = 1000;
         public static readonly int TimeHard = 30;
     }
