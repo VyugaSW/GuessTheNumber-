@@ -9,28 +9,27 @@ using System.Windows.Threading;
 
 namespace GuessTheNumber_
 {
-    public class Timer : INotifyPropertyChanged
+    public class TimerBer : INotifyPropertyChanged
     {
-        private int _time;
+        private int _timer;
+        private DispatcherTimer _dispatcherTimer;
+        private int _totalTime;
 
-        public int Time
+        public int Timer
         {
-            get { return _time; }
+            get { return _timer; }
             set
             {
-                _time = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Timer)));
+                _timer = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuessTheNumber_.TimerBer)));
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private DispatcherTimer _dispatcherTimer;
-        private int _totalTime;
-
         public int TotalTime { get; set; }
 
-        public Timer(int totalTime)
+        public TimerBer(int totalTime)
         {
             _totalTime = totalTime;
         }
@@ -40,42 +39,32 @@ namespace GuessTheNumber_
             _dispatcherTimer = new DispatcherTimer();
             _dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             _dispatcherTimer.Tick += DispatcherTimer_Tick;
-            Time = _totalTime;
+            Timer = _totalTime;
             _dispatcherTimer.Start();
         }
 
-        private void DispatcherTimer_Tick(object senrderm, EventArgs e)
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            Time--;
-            if (Time == 0)
+            Timer--;
+            if (Timer == 0)
                 _dispatcherTimer.Stop();
         }
 
     }
 
-
-
-
-
     public class DifficultSettings
     {
         public int CountTips { get; set; }
         public int MaxNumber { get; }
-        public Timer Timer { get; set; }
+        public TimerBer Timer { get; set; }
 
         public DifficultSettings(int countTips, int maxNumber, int totalTime)
         {
             CountTips = countTips;
             MaxNumber = maxNumber;
-            Timer = new Timer(totalTime);
+            Timer = new TimerBer(totalTime);
         }
     }
-
-
-
-
-
-
 
     internal static class DifSettingValues
     {

@@ -31,7 +31,7 @@ namespace GuessTheNumber_
         public MainWindow()
         {
             InitializeComponent();
-            _windowChanger = new WindowViewChanger(Menu, MainWindowName, StartGameButton, ExitButton);
+            _windowChanger = new WindowViewChanger();
         }
 
         private void AboutProgramItem_Click(object sender, RoutedEventArgs e)
@@ -44,7 +44,7 @@ namespace GuessTheNumber_
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             GameProcessWindow GameWindow = new GameProcessWindow(_difficult, _color);
-            Hide();     
+            Close();     
             GameWindow.Show();
         }
 
@@ -52,7 +52,6 @@ namespace GuessTheNumber_
         {
             Close();
         }
-
 
         private void ColorSubItem_Click(object sender, RoutedEventArgs e)
         {
@@ -65,6 +64,18 @@ namespace GuessTheNumber_
         {
             _difficult = (sender as MenuItem).Header.ToString().Replace("_", "");
             _windowChanger.ChangeCheked(sender, DifficultItem);            
+        }
+
+        private void MenuItemClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MenuItemNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Close();
+            mainWindow.Show();
         }
     }
 }

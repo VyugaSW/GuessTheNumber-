@@ -16,9 +16,6 @@ using System.Diagnostics;
 
 namespace GuessTheNumber_
 {
-
-
-
     /// <summary>
     /// Логика взаимодействия для GameProcessWindow.xaml
     /// </summary>
@@ -27,25 +24,25 @@ namespace GuessTheNumber_
 
     public partial class GameProcessWindow : Window
     {
-        private WindowViewChanger _windowChanger;
+        public WindowViewChanger WindowChanger { get; set; }
         private string _color;
         private int _number;
         public DifficultSettings DifficultSettings { get; set; }
 
         public GameProcessWindow(string difficult, string color)
         {
+            WindowChanger = new WindowViewChanger();
+            WindowChanger.ChangeProgramColor(color);
             InitializeComponent();
 
-            _windowChanger = new WindowViewChanger(Menu, GameWindow, ApplyButton, StopButton);
-            _windowChanger.ChangeProgramColor(color);
-
             ApplySettings(difficult);
-            DataContext = DifficultSettings.Timer;
+            DataContext = this;
 
             GenerateNumber();
 
             DifficultSettings.Timer.StartTimer();
         }
+
 
         private void ApplySettings(string difficult)
         {
@@ -72,17 +69,24 @@ namespace GuessTheNumber_
             _number = random.Next(0, DifficultSettings.MaxNumber);
         }
 
+        private void End(string result)
+        {
+            TextBlockEnd.Text = result;
+        }
+
 
 
         private void ColorSubItem_Click(object sender, RoutedEventArgs e)
         {
             _color = (sender as MenuItem).Header.ToString().Replace("_", "");
-            _windowChanger.ChangeCheked(sender, ColorItem);
-            _windowChanger.ChangeProgramColor(_color);
+            WindowChanger.ChangeCheked(sender, ColorItem);
+            WindowChanger.ChangeProgramColor(_color);
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e) 
         {
+
+
             Close();
         }
 
@@ -94,10 +98,23 @@ namespace GuessTheNumber_
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            if(Convert.ToInt32(TextBoxNumber.Text) == _number)
-            {
+            if (Convert.ToInt32(TextBoxNumber.Text) == _number)
+                End("WIN");            
+        }
 
-            }
+
+
+
+        private void MenuItemClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MenuItemNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Close();
+            mainWindow.Show();
         }
     }
 }

@@ -36,7 +36,7 @@
             <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{StaticResource StyleMenuGreen}">
 
                 <MenuItem Header="_Game">
-                    <MenuItem Header="_New game" InputGestureText="Ctrl+N">
+                    <MenuItem Header="_New game" InputGestureText="Ctrl+N" Click="MenuItemNewGame_Click" >
                         <MenuItem.Icon>
                             <Image Source="/Images/GameStart.png"/>
                         </MenuItem.Icon>
@@ -44,7 +44,7 @@
                     
                     <Separator Background="LightSkyBlue"/>
 
-                    <MenuItem Header="C_lose" InputGestureText="Alt+F4"/>
+                    <MenuItem Header="C_lose" InputGestureText="Alt+F4" Click="MenuItemClose_Click" />
                 </MenuItem>
 
                 <MenuItem Header="_Settings">

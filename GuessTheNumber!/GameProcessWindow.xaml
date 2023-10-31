@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuessTheNumber_"
         mc:Ignorable="d"
-        Title="GameProcessWindow" Height="450" Width="800" x:Name="GameWindow">
+        Title="GameProcessWindow" Height="450" Width="800" x:Name="GameWindow" Style="{Binding Path=StyleWindow}">
 
     <Window.ContextMenu>
         <ContextMenu>
@@ -25,10 +25,14 @@
             <RowDefinition Height="0.8*"/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="TextBoxNumber" Grid.Row="2" Style="{StaticResource StyleTextBox}"/>
+
+        <TextBlock x:Name="TextBlockEnd" FontSize="50" Style="{StaticResource StyleText}"
+                   Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         
-        <ProgressBar Grid.Row="3" 
-                     Maximum="{Binding Path=TotalTime}" Value="{Binding Path=Time}"/>
+        <TextBox x:Name="TextBoxNumber" Grid.Row="2" Style="{StaticResource StyleTextBox}" Background="White" Opacity="0.4"/>
+        
+        <ProgressBar x:Name="ProgressBar" Grid.Row="3" 
+                     Maximum="{Binding DifficultSettings.TimerBer.TotalTime}" Value="{Binding DifficultSettings.TimerBer.Timer}"/>
 
         <!-- This grid is for menu-->
         <Grid Grid.Row="0">
@@ -38,10 +42,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top">
+            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{Binding Path=StyleMenu}">
 
                 <MenuItem Header="_Game">
-                    <MenuItem Header="_New game" InputGestureText="Ctrl+N">
+                    <MenuItem Header="_New game" InputGestureText="Ctrl+N" Click="MenuItemNewGame_Click" >
                         <MenuItem.Icon>
                             <Image Source="/Images/GameStart.png"/>
                         </MenuItem.Icon>
@@ -49,7 +53,7 @@
 
                     <Separator Background="LightSkyBlue"/>
 
-                    <MenuItem Header="C_lose" InputGestureText="Alt+F4"/>
+                    <MenuItem Header="C_lose" InputGestureText="Alt+F4" Click="MenuItemClose_Click" />
                 </MenuItem>
 
                 <MenuItem Header="_Settings">
@@ -92,11 +96,11 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="ApplyButton" Content="Apply"
-                    Grid.Column="1" Grid.Row="0"
+                    Grid.Column="1" Grid.Row="0" Style="{Binding Path=StyleButton1}"
                     ToolTip="Check entered number" Click="ApplyButton_Click" />
 
             <Button x:Name="StopButton" Content="Stop"
-                    Grid.Column="3" Grid.Row="0"
+                    Grid.Column="3" Grid.Row="0" Style="{Binding Path=StyleButton1}"
                     ToolTip="Stop the game" Click="StopButton_Click"/>
         </Grid>
 
