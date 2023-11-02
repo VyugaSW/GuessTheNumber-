@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
 
+using GuessTheNumber_.Properties;
+using GuessTheNumber_.Model;
+using GuessTheNumber_.ViewModel;
 
 namespace GuessTheNumber_
 {
@@ -24,22 +27,25 @@ namespace GuessTheNumber_
 
     public partial class GameProcessWindow : Window
     {
-        public WindowViewChanger WindowChanger { get; set; }
+        public SettingsViewModel SettingsViewModel { get; set; }
+        public GameViewModel GameViewModel { get; set; }
+
         private string _color;
         private int _number;
         public DifficultSettings DifficultSettings { get; set; }
 
         public GameProcessWindow(string difficult, string color)
         {
-            WindowChanger = new WindowViewChanger();
+            SettingsViewModel = new SettingsViewModel();
+            GameViewModel = new GameViewModel();
+            SettingsViewModel.SetStyle(color);
             _color = color;
-            WindowChanger.ChangeProgramColor(color);
 
             ApplySettings(difficult);
             GenerateNumber();
 
             InitializeComponent();
-            DifficultSettings.Timer.StartTimer();
+            GameViewModel.StartTimer();
 
             DataContext = this;
         }
@@ -70,18 +76,15 @@ namespace GuessTheNumber_
             _number = random.Next(0, DifficultSettings.MaxNumber);
         }
 
-        private void End(string result)
-        {
-            TextBlockEnd.Text = result;
-        }
+        private void End(string result) => TextBlockEnd.Text = result;
 
 
 
         private void ColorSubItem_Click(object sender, RoutedEventArgs e)
         {
             _color = (sender as MenuItem).Header.ToString().Replace("_", "");
-            WindowChanger.ChangeCheked(sender, ColorItem);
-            WindowChanger.ChangeProgramColor(_color);
+            SettingsViewModel.ChangeCheked(sender, ColorItem);
+            SettingsViewModel.SetStyle(_color);
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e) 
@@ -120,7 +123,7 @@ namespace GuessTheNumber_
 
         private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (DifficultSettings.Timer.Timer == 0)
+            if (ProgressBar.Value == 0)
             {
                 End("LOOSE");
                 TextBoxNumber.Text = Convert.ToString(_number);

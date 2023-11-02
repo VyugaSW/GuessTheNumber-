@@ -57,6 +57,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\GameModel.cs" />
+    <Compile Include="Model\SettingModel.cs" />
+    <Compile Include="Model\StyleModel.cs" />
+    <Compile Include="ViewModel\GameViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="WindowViewChanger.cs" />
     <Page Include="GameProcessWindow.xaml">
       <SubType>Designer</SubType>

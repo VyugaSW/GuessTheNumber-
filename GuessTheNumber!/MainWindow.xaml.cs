@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using GuessTheNumber_.Properties;
+using GuessTheNumber_.Model;
+using GuessTheNumber_.ViewModel;
 
 namespace GuessTheNumber_
 {
@@ -24,26 +26,24 @@ namespace GuessTheNumber_
   
     public partial class MainWindow : Window
     {
+        public SettingsViewModel SettingsViewModel { get; set; }
+
         private string _difficult = "Medium";
         private string _color = "Green";
-        public WindowViewChanger WindowChanger { get; set; }
 
         public MainWindow()
         {
-            WindowChanger = new WindowViewChanger();
-            WindowChanger.ChangeProgramColor(_color);
-
             InitializeComponent();
 
+            SettingsViewModel = new SettingsViewModel();
             DataContext = this;
         }
 
         public MainWindow(string color)
         {
             _color = color;
-            WindowChanger = new WindowViewChanger();
-
-            WindowChanger.ChangeProgramColor(_color);
+            SettingsViewModel = new SettingsViewModel();
+            SettingsViewModel.SetStyle(color);
 
             InitializeComponent();
 
@@ -72,14 +72,14 @@ namespace GuessTheNumber_
         private void ColorSubItem_Click(object sender, RoutedEventArgs e)
         {
             _color = (sender as MenuItem).Header.ToString().Replace("_", "");
-            WindowChanger.ChangeCheked(sender, ColorItem);
-            WindowChanger.ChangeProgramColor(_color);
+            SettingsViewModel.ChangeCheked(sender, ColorItem);
+            SettingsViewModel.SetStyle(_color);
         }
 
         private void DifficultSubItem_Click(object sender, RoutedEventArgs e)
         {
             _difficult = (sender as MenuItem).Header.ToString().Replace("_", "");
-            WindowChanger.ChangeCheked(sender, DifficultItem);            
+            SettingsViewModel.ChangeCheked(sender, DifficultItem);            
         }
 
         private void MenuItemClose_Click(object sender, RoutedEventArgs e)

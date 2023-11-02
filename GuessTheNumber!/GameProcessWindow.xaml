@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuessTheNumber_"
         mc:Ignorable="d"
-        Title="GameProcessWindow" Height="450" Width="800" x:Name="GameWindow" Style="{Binding WindowChanger.StyleWindow}">
+        Title="GameProcessWindow" Height="450" Width="800" x:Name="GameWindow" Style="{Binding SettingsViewModel.StyleModel.StyleWindow}">
 
     <Window.ContextMenu>
         <ContextMenu>
@@ -43,7 +43,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{Binding WindowChanger.StyleMenu}">
+            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{Binding SettingsViewModel.StyleModel.StyleMenu}">
 
                 <MenuItem Header="_Game">
                     <MenuItem Header="_New game" InputGestureText="Ctrl+N" Click="MenuItemNewGame_Click" >
@@ -97,11 +97,11 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="ApplyButton" Content="Apply"
-                    Grid.Column="1" Grid.Row="0" Style="{Binding WindowChanger.StyleButton}"
+                    Grid.Column="1" Grid.Row="0" Style="{Binding SettingsViewModel.StyleModel.StyleButton}"
                     ToolTip="Check entered number" Click="ApplyButton_Click" />
 
             <Button x:Name="StopButton" Content="Stop"
-                    Grid.Column="3" Grid.Row="0" Style="{Binding WindowChanger.StyleButton}"
+                    Grid.Column="3" Grid.Row="0" Style="{Binding SettingsViewModel.StyleModel.StyleButton}"
                     ToolTip="Stop the game" Click="StopButton_Click"/>
         </Grid>
 

@@ -5,31 +5,8 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <Style x:Key="StyleTextBlack">
-            <Style.Setters>
-                <Setter Property="Control.FontSize" Value="25"/>
-                <Setter Property="Control.FontStyle" Value="Italic"/>
-                <Setter Property="Control.Margin" Value="10"/>
-                <Setter Property="Control.Foreground" Value="Black"/>
-            </Style.Setters>
-        </Style>
 
-        <Style x:Key="StyleText">
-            <Style.Setters>
-                <Setter Property="Control.FontSize" Value="25"/>
-                <Setter Property="Control.FontStyle" Value="Italic"/>
-                <Setter Property="Control.Margin" Value="10"/>
-                <Setter Property="Control.Foreground" Value="DarkViolet"/>
-            </Style.Setters>
-        </Style>
-            
-        <Style x:Key="StyleTextBox" TargetType="TextBox" BasedOn="{StaticResource StyleText}">
-            <Setter Property="ItemsControl.FontSize" Value="30"/>
-            <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="300,40"/>
-        </Style>
-        
-        
+        <!-- Window Styles -->
         <Style x:Key="StyleWindowGreen" TargetType="Window">
             <Setter Property="Background">
                 <Setter.Value>
@@ -69,9 +46,53 @@
             </Setter>
         </Style>
 
+        <!-- Text Styles -->
+        <Style x:Key="StyleTextGreen">
+            <Style.Setters>
+                <Setter Property="Control.FontSize" Value="25"/>
+                <Setter Property="Control.FontStyle" Value="Italic"/>
+                <Setter Property="Control.Margin" Value="10"/>
+                <Setter Property="Control.Foreground" Value="DarkViolet"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="StyleTextViolet">
+            <Style.Setters>
+                <Setter Property="Control.FontSize" Value="25"/>
+                <Setter Property="Control.FontStyle" Value="Italic"/>
+                <Setter Property="Control.Margin" Value="10"/>
+                <Setter Property="Control.Foreground" Value="PapayaWhip"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="StyleTextRed">
+            <Style.Setters>
+                <Setter Property="Control.FontSize" Value="25"/>
+                <Setter Property="Control.FontStyle" Value="Italic"/>
+                <Setter Property="Control.Margin" Value="10"/>
+                <Setter Property="Control.Foreground" Value="Black"/>
+            </Style.Setters>
+        </Style>
+                    
+        <Style x:Key="StyleTextBlack">
+            <Style.Setters>
+                <Setter Property="Control.FontSize" Value="25"/>
+                <Setter Property="Control.FontStyle" Value="Italic"/>
+                <Setter Property="Control.Margin" Value="10"/>
+                <Setter Property="Control.Foreground" Value="Black"/>
+            </Style.Setters>
+        </Style>
         
+
+        <!-- TextBox Styles -->
+        <Style x:Key="StyleTextBox" TargetType="TextBox" BasedOn="{StaticResource StyleTextBlack}">
+            <Setter Property="ItemsControl.FontSize" Value="30"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="300,40"/>
+        </Style>
         
-        
+      
+        <!-- Menu Styles -->
         <Style x:Key="StyleMenuGreen" TargetType="Menu">
             <Setter Property="Background">
                 <Setter.Value>
@@ -111,8 +132,9 @@
             </Setter>
         </Style>
 
-              
-        <Style x:Key="StyleButtonGreen" TargetType="Button" BasedOn="{StaticResource StyleText}">
+           
+        <!-- Button Styles-->
+        <Style x:Key="StyleButtonGreen" TargetType="Button" BasedOn="{StaticResource StyleTextGreen}">
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Background">
                 <Setter.Value>
@@ -164,7 +186,7 @@
             </Setter>
         </Style>
 
-        <Style x:Key="StyleButtonViolet" TargetType="Button" BasedOn="{StaticResource StyleText}">
+        <Style x:Key="StyleButtonViolet" TargetType="Button" BasedOn="{StaticResource StyleTextViolet}">
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Background">
                 <Setter.Value>
@@ -216,8 +238,7 @@
             </Setter>
         </Style>
 
-
-        <Style x:Key="StyleButtonRed" TargetType="Button" BasedOn="{StaticResource StyleText}">
+        <Style x:Key="StyleButtonRed" TargetType="Button" BasedOn="{StaticResource StyleTextRed}">
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Background">
                 <Setter.Value>

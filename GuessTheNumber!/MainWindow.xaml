@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GuessTheNumber_.Properties"
         mc:Ignorable="d"
         x:Name="MainWindowName"
-        Title="Guess the number" Height="450" Width="800" Style="{Binding WindowChanger.StyleWindow}">
+        Title="Guess the number" Height="450" Width="800" Style="{Binding SettingsViewModel.StyleModel.StyleWindow}">
 
     <Window.ContextMenu>
         <ContextMenu>
@@ -33,7 +33,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{Binding WindowChanger.StyleMenu}">
+            <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Style="{Binding SettingsViewModel.StyleModel.StyleMenu}">
 
                 <MenuItem Header="_Game">
                     <MenuItem Header="_New game" InputGestureText="Ctrl+N" Click="MenuItemNewGame_Click" >
@@ -90,14 +90,15 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="StartGameButton" Content="Start"
-                    Grid.Column="0" Grid.Row="0" Style="{Binding WindowChanger.StyleButton}" 
+                    Grid.Column="0" Grid.Row="0" Style="{Binding SettingsViewModel.StyleModel.StyleButton}" 
                     ToolTip="Start a new game"
                     Click="StartGameButton_Click"/>
 
             <Button x:Name="ExitButton" Content="Exit"
-                    Grid.Column="1" Grid.Row="0" Style="{Binding WindowChanger.StyleButton}"
+                    Grid.Column="1" Grid.Row="0" Style="{Binding SettingsViewModel.StyleModel.StyleButton}"
                     ToolTip="Close program" 
                     Click="ExitButton_Click"/>
+            
         </Grid>
 
 
